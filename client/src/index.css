@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Trading Dashboard Dark Theme */
+    --background: 220 26% 8%;
+    --foreground: 220 8% 95%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 220 8% 95%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 220 8% 95%;
+
+    --primary: 195 100% 50%;
+    --primary-foreground: 220 26% 8%;
+
+    --secondary: 220 16% 16%;
+    --secondary-foreground: 220 8% 85%;
+
+    --muted: 220 16% 16%;
+    --muted-foreground: 220 8% 65%;
+
+    --accent: 195 100% 50%;
+    --accent-foreground: 220 26% 8%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 220 8% 95%;
+
+    --success: 142 85% 45%;
+    --success-foreground: 220 8% 95%;
+
+    --border: 220 16% 20%;
+    --input: 220 16% 16%;
+    --ring: 195 100% 50%;
+
+    --profit: 142 85% 45%;
+    --profit-foreground: 220 26% 8%;
+    --loss: 0 85% 60%;
+    --loss-foreground: 220 8% 95%;
+
+    --chart-primary: 195 100% 50%;
+    --chart-secondary: 142 85% 45%;
+    --chart-accent: 271 91% 65%;
+    --chart-warning: 43 96% 56%;
+    --chart-danger: 0 85% 60%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(195 100% 50%), hsl(220 100% 60%));
+    --gradient-profit: linear-gradient(135deg, hsl(142 85% 45%), hsl(142 70% 60%));
+    --gradient-loss: linear-gradient(135deg, hsl(0 85% 60%), hsl(0 70% 50%));
+
+    --shadow-trading: 0 4px 20px -4px hsl(195 100% 50% / 0.3);
+    --shadow-profit: 0 4px 20px -4px hsl(142 85% 45% / 0.3);
+    --shadow-loss: 0 4px 20px -4px hsl(0 85% 60% / 0.3);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 220 26% 8%;
+    --sidebar-foreground: 220 8% 95%;
+    --sidebar-primary: 195 100% 50%;
+    --sidebar-primary-foreground: 220 26% 8%;
+    --sidebar-accent: 220 16% 16%;
+    --sidebar-accent-foreground: 220 8% 95%;
+    --sidebar-border: 220 16% 20%;
+    --sidebar-ring: 195 100% 50%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 195 100% 40%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 195 100% 40%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142 85% 35%;
+    --success-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 195 100% 40%;
+
+    --profit: 142 85% 35%;
+    --profit-foreground: 210 40% 98%;
+    --loss: 0 84.2% 60.2%;
+    --loss-foreground: 210 40% 98%;
+
+    --chart-primary: 195 100% 40%;
+    --chart-secondary: 142 85% 35%;
+    --chart-accent: 271 91% 55%;
+    --chart-warning: 43 96% 46%;
+    --chart-danger: 0 84.2% 60.2%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(195 100% 40%), hsl(220 100% 50%));
+    --gradient-profit: linear-gradient(135deg, hsl(142 85% 35%), hsl(142 70% 50%));
+    --gradient-loss: linear-gradient(135deg, hsl(0 84.2% 60.2%), hsl(0 70% 40%));
+
+    --shadow-trading: 0 4px 20px -4px hsl(195 100% 40% / 0.3);
+    --shadow-profit: 0 4px 20px -4px hsl(142 85% 35% / 0.3);
+    --shadow-loss: 0 4px 20px -4px hsl(0 84.2% 60.2% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 195 100% 40%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 195 100% 40%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono;
+  }
+
+  .trading-gradient {
+    background: var(--gradient-primary);
+  }
+
+  .profit-gradient {
+    background: var(--gradient-profit);
+  }
+
+  .loss-gradient {
+    background: var(--gradient-loss);
+  }
+
+  .shadow-trading {
+    box-shadow: var(--shadow-trading);
+  }
+
+  .shadow-profit {
+    box-shadow: var(--shadow-profit);
+  }
+
+  .shadow-loss {
+    box-shadow: var(--shadow-loss);
+  }
+}
