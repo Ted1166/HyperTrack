@@ -1,10 +1,6 @@
 import { useState } from "react";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Download, Search, ArrowUpDown } from "lucide-react";
+import { TradeFilters } from "./TradeFilters";
+import { TradeTable } from "./TradeTable";
 
 // Mock data - will be replaced with real API data
 const mockTrades = [
@@ -62,16 +58,7 @@ const mockTrades = [
 
 export const TradeHistory = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [sortBy, setSortBy] = useState("timestamp");
   const [filterAsset, setFilterAsset] = useState("all");
-
-  const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 2,
-    }).format(amount);
-  };
 
   const exportToCSV = () => {
     const headers = ["Timestamp", "Asset", "Side", "Size", "Price", "P&L", "Fees"];
@@ -108,91 +95,16 @@ export const TradeHistory = () => {
 
   return (
     <div className="space-y-4">
-      {/* Filters and Controls */}
-      <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
-        <div className="flex flex-col sm:flex-row gap-2">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              placeholder="Search trades..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 w-full sm:w-64"
-            />
-          </div>
-          <Select value={filterAsset} onValueChange={setFilterAsset}>
-            <SelectTrigger className="w-full sm:w-32">
-              <SelectValue placeholder="Asset" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Assets</SelectItem>
-              {uniqueAssets.map(asset => (
-                <SelectItem key={asset} value={asset}>{asset}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-        <Button onClick={exportToCSV} variant="outline" size="sm">
-          <Download className="h-4 w-4 mr-2" />
-          Export CSV
-        </Button>
-      </div>
+      <TradeFilters
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        filterAsset={filterAsset}
+        setFilterAsset={setFilterAsset}
+        uniqueAssets={uniqueAssets}
+        onExportCSV={exportToCSV}
+      />
 
-      {/* Trade Table */}
-      <div className="border rounded-lg">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="cursor-pointer hover:text-foreground">
-                <div className="flex items-center gap-1">
-                  Timestamp
-                  <ArrowUpDown className="h-3 w-3" />
-                </div>
-              </TableHead>
-              <TableHead>Asset</TableHead>
-              <TableHead>Side</TableHead>
-              <TableHead className="text-right">Size</TableHead>
-              <TableHead className="text-right">Price</TableHead>
-              <TableHead className="text-right">P&L</TableHead>
-              <TableHead className="text-right">Fees</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {filteredTrades.map((trade) => (
-              <TableRow key={trade.id}>
-                <TableCell className="font-mono text-xs">
-                  {trade.timestamp}
-                </TableCell>
-                <TableCell>
-                  <Badge variant="outline" className="font-medium">
-                    {trade.asset}
-                  </Badge>
-                </TableCell>
-                <TableCell>
-                  <Badge 
-                    variant={trade.side === "buy" ? "default" : "secondary"}
-                    className={trade.side === "buy" ? "bg-profit/10 text-profit border-profit/20" : "bg-loss/10 text-loss border-loss/20"}
-                  >
-                    {trade.side.toUpperCase()}
-                  </Badge>
-                </TableCell>
-                <TableCell className="text-right font-mono">
-                  {trade.size}
-                </TableCell>
-                <TableCell className="text-right font-mono">
-                  {formatCurrency(trade.price)}
-                </TableCell>
-                <TableCell className={`text-right font-mono font-medium ${trade.pnl >= 0 ? 'text-profit' : 'text-loss'}`}>
-                  {formatCurrency(trade.pnl)}
-                </TableCell>
-                <TableCell className="text-right font-mono text-muted-foreground">
-                  {formatCurrency(trade.fees)}
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
+      <TradeTable trades={filteredTrades} />
 
       {filteredTrades.length === 0 && (
         <div className="text-center py-8 text-muted-foreground">
