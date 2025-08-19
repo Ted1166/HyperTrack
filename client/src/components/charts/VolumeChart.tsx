@@ -1,6 +1,5 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-// Mock data - will be replaced with real API data
 const mockData = [
   { date: '2024-01-01', volume: 12500 },
   { date: '2024-01-02', volume: 18750 },

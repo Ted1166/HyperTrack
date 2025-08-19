@@ -1,6 +1,5 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 
-// Mock data - will be replaced with real API data
 const mockData = [
   { name: 'ETH', value: 45.2, volume: 125000 },
   { name: 'BTC', value: 28.7, volume: 89000 },

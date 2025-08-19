@@ -12,7 +12,6 @@ import { useState } from "react";
 const Dashboard = () => {
   const [isConnected, setIsConnected] = useState(false);
 
-  // Mock data - will be replaced with real API data
   const mockStats = {
     totalPnL: 12847.56,
     dailyPnL: 234.12,
