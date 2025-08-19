@@ -1,1 +1,1 @@
-# hyperliquid-pnl
+# HyperTrack
