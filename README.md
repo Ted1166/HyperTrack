@@ -1,6 +1,6 @@
 # HyperTrack
 
-📊 HyperTrack is an open-source PnL and Trade History Explorer for the Hyperliquid chain.
+📊 HyperTrack is a PnL and Trade History Explorer for the Hyperliquid chain.
 It pulls your complete trading history via Hyperliquid APIs and gives you clean insights, visualizations, and exports for accounting and tax reporting.
 
 ## ✨ Features
