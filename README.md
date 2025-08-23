@@ -1,6 +1,6 @@
 # HyperTrack
 
-📊 HyperTrack is an open-source PnL and Trade History Explorer for the Hyperliquid chain.
+📊 HyperTrack is a PnL and Trade History Explorer for the Hyperliquid chain.
 It pulls your complete trading history via Hyperliquid APIs and gives you clean insights, visualizations, and exports for accounting and tax reporting.
 
 ## ✨ Features
@@ -21,63 +21,49 @@ It pulls your complete trading history via Hyperliquid APIs and gives you clean 
 
 ## 🚀 Getting Started
 1. Clone the repo
-    git clone https://github.com/your-username/hypertrack.git
-    cd hypertrack
+
+        git clone https://github.com/your-username/hypertrack.git
+        cd hypertrack
 
 2. Install dependencies
-npm install
+   
+        npm install
 
 3. Configure environment variables
 
-Create a .env.local file and add your Hyperliquid API settings if required:
-
-NEXT_PUBLIC_HYPERLIQUID_API=https://api.hyperliquid.xyz
+        Create a .env.local file and add your Hyperliquid API settings if required:
+        NEXT_PUBLIC_HYPERLIQUID_API=https://api.hyperliquid.xyz
 
 4. Run the app locally
-npm run dev
 
+         npm run dev
+         Visit: http://localhost:3000
 
-Visit: http://localhost:3000
+## 📊 Example Dashboard
 
-📊 Example Dashboard
+  - PnL over time (line chart)
+  - Win rate donut chart
+  - Asset allocation bar chart
+  - Export trades as CSV
 
-PnL over time (line chart)
+## 📂 Project Structure
 
-Win rate donut chart
+        hypertrack/
+         ├── backend/           # Minimal API proxy
+         ├── components/        # Reusable React components
+         ├── pages/             # Next.js pages
+         ├── public/            # Static assets
+         ├── styles/            # Tailwind CSS styles
+         └── utils/             # API + helper functions
 
-Asset allocation bar chart
+## 🤝 Contributing
 
-Export trades as CSV
+  - We welcome contributions! 🚀
+  - Open issues for bugs & feature requests
+  - Submit PRs for improvements
+  - Help us improve documentation
 
-📂 Project Structure
-hypertrack/
- ├── backend/           # Minimal API proxy
- ├── components/        # Reusable React components
- ├── pages/             # Next.js pages
- ├── public/            # Static assets
- ├── styles/            # Tailwind CSS styles
- └── utils/             # API + helper functions
+## 📜 License
 
-🤝 Contributing
+  - MIT License – free to use, modify, and share.
 
-We welcome contributions! 🚀
-
-Open issues for bugs & feature requests
-
-Submit PRs for improvements
-
-Help us improve documentation
-
-📜 License
-
-MIT License – free to use, modify, and share.
-
-🌍 Why HyperTrack?
-
-Hyperliquid APIs are already live → no smart contracts needed
-
-Focused on clean UI & good docs → perfect for hackathons or public goods
-
-Helps traders, accountants, and data enthusiasts easily understand performance
-
-⚡ Built for the Hyperliquid chain community → Trade smarter, track better with HyperTrack.
