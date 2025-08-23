@@ -39,6 +39,7 @@
     "class-variance-authority": "^0.7.1",
     "cmdk": "^1.1.1",
     "embla-carousel-react": "^8.6.0",
+    "hyperliquid": "^1.7.6",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.539.0",
     "react": "^18.3.1",
@@ -49,7 +50,8 @@
     "react-router-dom": "^7.8.1",
     "recharts": "^3.1.2",
     "tailwind-merge": "^3.3.1",
-    "vaul": "^1.1.2"
+    "vaul": "^1.1.2",
+    "ws": "^8.18.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",

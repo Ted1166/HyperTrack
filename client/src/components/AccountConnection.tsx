@@ -8,7 +8,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Wallet, Shield, TrendingUp, Info, ExternalLink, Copy, Check } from "lucide-react";
 
 interface AccountConnectionProps {
-  onConnect: () => void;
+  onConnect: (address: string) => void;
 }
 
 export const AccountConnection = ({ onConnect }: AccountConnectionProps) => {
@@ -29,7 +29,7 @@ export const AccountConnection = ({ onConnect }: AccountConnectionProps) => {
     // Simulate API connection
     setTimeout(() => {
       setIsConnecting(false);
-      onConnect();
+      onConnect(walletAddress);
     }, 1500);
   };
 

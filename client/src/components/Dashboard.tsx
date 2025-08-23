@@ -35,7 +35,7 @@ const Dashboard = () => {
   };
 
   if (!isConnected) {
-    return <AccountConnection onConnect={() => setIsConnected(true)} />;
+    return <AccountConnection onConnect={(address) => setIsConnected(true)} />;
   }
 
   return (
